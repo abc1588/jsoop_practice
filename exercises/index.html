@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSOOP-Practice1</title>
+    <script type="text/javascript" src="randomgenerator.js"></script>
+    <script type="text/javascript" src="basiccalcobject.js"></script>
+    <script type="text/javascript" src="bankaccount.js"></script>
+    <script type="text/javascript" src="bank.js"></script>
+</head>
+<body>
+
+<script>
+
+<!-- Featureset 4 - Bank that uses Monetary Account -->
+    debugger;
+    var my_bank = new Bank('BankOne');
+    if (my_bank.checkForAccount('acct_101')) {
+        console.log ('account number already exist, pick another account number');
+    } else {
+        my_bank.makeAccount('acct_101', 5000);
+    }
+    if (my_bank.checkForAccount('acct_101')) {
+        my_bank.deposit('acct_101', 3000);
+    }
+    if (my_bank.checkForAccount('acct_101')) {
+        my_bank.withdraw('acct_101', 8000);
+    }
+    my_bank.removeAccount('acct_101');
+
+
+<!-- Featureset 1 - Random Number Generator -->
+var x = new RandomGenerator(10, 50);
+x.generate();
+var randomNum = x.getNum();
+console.log ("x = ", x);
+console.log ("range is ", x.getRange());
+console.log ("random number is ", randomNum);
+
+<!-- Featureset 2 - Basic Calculator Object -->
+var c1 = new Calculator();
+c1.loadNumber(18);
+c1.loadNumber(3);
+c1.loadOperator('*');
+c1.calculate();
+
+<!-- Featureset 3 - Basic Calculator Object -->
+var a1 = new Account();
+a1.add(12000);
+a1.remove(5000);
+a1.getAmount();
+
+
+</script>
+
+</body>
+</html>
