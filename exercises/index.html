@@ -7,13 +7,34 @@
     <script type="text/javascript" src="basiccalcobject.js"></script>
     <script type="text/javascript" src="bankaccount.js"></script>
     <script type="text/javascript" src="bank.js"></script>
+    <script type="text/javascript" src="card.js"></script>
 </head>
 <body>
 
 <script>
 
+<!-- Featureset 1 - Random Number Generator -->
+    var x = new RandomGenerator(10, 50);
+    x.generate();
+    var randomNum = x.getNum();
+    console.log ("x = ", x);
+    console.log ("range is ", x.getRange());
+    console.log ("random number is ", randomNum);
+
+<!-- Featureset 2 - Basic Calculator Object -->
+    var c1 = new Calculator();
+    c1.loadNumber(18);
+    c1.loadNumber(3);
+    c1.loadOperator('*');
+    c1.calculate();
+
+<!-- Featureset 3 - Basic Calculator Object -->
+    var a1 = new Account();
+    a1.add(12000);
+    a1.remove(5000);
+    a1.getAmount();
+
 <!-- Featureset 4 - Bank that uses Monetary Account -->
-    debugger;
     var my_bank = new Bank('BankOne');
     if (my_bank.checkForAccount('acct_101')) {
         console.log ('account number already exist, pick another account number');
@@ -28,28 +49,17 @@
     }
     my_bank.removeAccount('acct_101');
 
-
-<!-- Featureset 1 - Random Number Generator -->
-var x = new RandomGenerator(10, 50);
-x.generate();
-var randomNum = x.getNum();
-console.log ("x = ", x);
-console.log ("range is ", x.getRange());
-console.log ("random number is ", randomNum);
-
-<!-- Featureset 2 - Basic Calculator Object -->
-var c1 = new Calculator();
-c1.loadNumber(18);
-c1.loadNumber(3);
-c1.loadOperator('*');
-c1.calculate();
-
-<!-- Featureset 3 - Basic Calculator Object -->
-var a1 = new Account();
-a1.add(12000);
-a1.remove(5000);
-a1.getAmount();
-
+<!-- Featureset 5 - Deck of Cards -->
+    var c1 = new Deck();
+    c1.addCard('Heart','Queen');
+    c1.addCard('Spade','Ace');
+    c1.addCard('Diamond','King');
+    c1.addCard('Club','8');
+    c1.addCard('Heart','5');
+    console.log('current number of cards in deck: ' + c1.getCardCount());
+    console.log('current deck: ' + c1);
+    c1.shuffle();
+    c1.dealCards(2);
 
 </script>
 
